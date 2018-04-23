@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApplication1.Window1" 
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+Title="Window1" Height="314" Width="613" 
+xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+xmlns:local="clr-namespace:WpfApplication1" 
+dx:ThemeManager.ThemeName="Azure">      
+        <Grid>
+            <dxg:GridControl Margin="12,12,170,30" Name="gridControl1" DataSource="{Binding Customers}">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Name" />
+                <dxg:GridColumn FieldName="Date" />
+                <dxg:GridColumn FieldName="IsFired" />              
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView x:Name="view" FocusedRow="{Binding CurrentCustomer, Mode=TwoWay}" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,31.4,12,0" Name="button2" VerticalAlignment="Top" Width="143" Command="{Binding MovePrevRowCommand}">Move Prev Row</Button>
+        <Button Height="23" HorizontalAlignment="Right" Margin="0,61.4,12,0" Name="button1" VerticalAlignment="Top" Width="143" Command="{Binding MoveNextRowCommand}">Move Next Row</Button>
+    </Grid>
+</Window>
